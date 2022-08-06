@@ -1,0 +1,96 @@
+@font-face {
+    font-family: 'sofiapro';
+    src: local('sofiapro'), url(../Fonts/sofiapro-light.otf) format('woff');
+}
+
+html, body{
+    margin: 0;
+    padding: 0;
+    font-family: 'sofiapro', Arial, sans-serif ;
+}
+
+.app {
+    display: flex;
+}
+
+/* ********** Nav ************ */
+nav {
+    height: 100vh;
+    background-color: #292f4c;
+    color: #FFFFFF;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+nav .logo-container,
+nav .controls-container{
+    display: flex;
+    flex-direction: column;
+    padding: 48px 25px;
+}
+
+nav .logo-container img{
+    width: 20px;
+    cursor: pointer;
+}
+
+nav .controls-container button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+}
+nav .icon{
+ color: #FFFFFF;
+}
+
+/* ********** Dashboard ************ */
+.dashboard{
+    width: 100%;
+    padding: 38px;
+}
+
+.dashboard .ticket-container{
+    height: 80vh;
+    overflow: scroll;
+
+}
+
+/* ********** Tickets ************ */
+
+.ticket-card, .ticket-card #link  {
+    display: flex;
+    width: 100%;
+}
+
+
+.ticket-card #link > *{
+    background-color: rgb(221,221,221);
+    margin: 2px;
+    padding: 30px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+}
+
+.ticket-card .ticket-color{
+    width: 15px;
+    margin: 2px;
+}
+
+.ticket-card .avatar-container{
+    display: flex;
+    justify-content: center;
+    width: 80px;
+}
+
+.avatar-container .img-container{
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
+    overflow: hidden;
+
+}

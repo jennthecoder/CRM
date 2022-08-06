@@ -1,7 +1,7 @@
 const Priority = () => {
     return (
         <div>
-            Priority
+            Status
         </div>
     );
 }

@@ -44,12 +44,35 @@ nav .controls-container button {
 }
 nav .icon{
  color: #FFFFFF;
+ font-size: larger;
 }
 
 /* ********** Dashboard ************ */
 .dashboard{
     width: 100%;
     padding: 38px;
+}
+
+.dashboard .header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.dashboard .header .btn{
+    margin-right: 38px;
+}
+
+.dashboard .icon-btn {
+    background-color: rgb(221,221,221);
+    border: none;
+    cursor: pointer;
+    border-radius: 35px;
+    font-size: larger;
+}
+
+.dashboard .icon-btn:hover{
+    background-color: #292f4c;
+    color:#FFFFFF
 }
 
 .dashboard .ticket-container{
@@ -65,8 +88,12 @@ nav .icon{
     width: 100%;
 }
 
+.ticket-card a {
+    text-decoration: none;
+    color: rgb(46, 46, 46)
+}
 
-.ticket-card #link > *{
+.ticket-card #link > * {
     background-color: rgb(221,221,221);
     margin: 2px;
     padding: 30px;
@@ -90,7 +117,152 @@ nav .icon{
 .avatar-container .img-container{
     height: 50px;
     width: 50px;
-    border-radius: 25px;
+    border-radius: 50%;
+    align-content: center;
+    align-items: center;
     overflow: hidden;
 
+}
+
+.avatar-container .img-container img{
+    width: 100%;
+    max-height: 100%;
+}
+
+.ticket-card .status-display, .ticket-card .priority-display {
+    display: flex;
+    justify-content: center;
+}
+
+.ticket-card .progress-bar-display{
+    min-width: 200px;
+}
+
+.progress-bar-display .progress-bar{
+    background-color: rgb(145, 148, 147);
+    width: 100%;
+    height: 20px;
+    border-radius: 15px;
+}
+
+.progress-bar .progress {
+    height: 100%;
+    border-radius: 15px;
+}
+
+.ticket-card .delete-display{
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.delete-display .delete-btn{
+    visibility: hidden;
+    border: none;
+    background-color: #292f4c;
+    margin: 2px;
+    color: #FFFFFF;
+    min-width: 30px;
+    cursor: pointer;
+    align-items: center;
+}
+
+.delete-display:hover > .delete-btn, .ticket-card:hover > .delete-display .delete-btn{
+    visibility: visible;
+}
+
+/* ********** Ticket ************ */
+.ticket {
+    width: 100%;
+    padding: 38px;
+    height: 90vh;
+    overflow: scroll;
+}
+
+.ticket .title{
+    text-transform: capitalize;
+    text-align: center;
+}
+
+.ticket .ticket-container{
+    display: flex;
+    justify-content: center;
+}
+
+.ticket form{
+    display: flex;
+}
+
+.ticket form input {
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 10px;
+    border: 1.5px solid rgb(218, 218, 218);
+    margin: 5px 0;
+    color: rgb(46, 46, 46);
+    font-family: 'sofiapro', Arial, sans-serif ;
+}
+
+.ticket .ticket-container section > input[type="submit" i]{
+    margin-top: 35px;
+    border-radius: 15px;
+    border: none;
+    height: 40px
+}
+
+.ticket .ticket-container section > input[type="submit" i]:hover{
+    background-color: #292f4c;
+    color: #FFFFFF;
+}
+
+.ticket form section{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    width: 500px;
+}
+
+.ticket form label{
+    margin: 20px 0 0 0;
+}
+
+.ticket form select, .ticket form select{
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 10px;
+    border: 1.5px solid rgb(218, 218, 218);
+    margin: 5px 0;
+    font-family: 'sofiapro', Arial, sans-serif ;
+    color: rgb(46, 46, 46);
+}
+
+.ticket form .multiple-input-container input{
+    margin: 10px 4px 10px 12px;
+}
+.ticket .owners-list{
+    display: flex;
+
+}
+
+.ticket .owners-list .owners{
+    margin: 5px 10px 7px 0;
+    border: 2px solid transparent;
+    padding: 10px 15px;
+    font-family: 'sofiapro', Arial, sans-serif ;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.ticket .owners-list .owners:hover{
+    border: 2px solid #292f4c;
+    background-color: #FFFFFF;
+}
+
+.img-preview {
+    margin-top: 20px;
+}
+
+.img-preview > img {
+    width: 50%;
+    height: auto;
 }

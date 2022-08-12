@@ -1,58 +1,71 @@
 import Ticket from '../components/Ticket';
+import axios from 'axios';
+import { useState, useEffect, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import CategoriesContext from '../categoryContext';
+import OwnerContext from '../ownerContext';
+
+
 
 const Dashboard = () => {
-    const tickets = [
-        {
-            category: 'Q1 2022',
-            color: 'purple',
-            title: 'Interview prep',
-            owner: 'Jennifer Nnadi',
-            avatar: 'https://www.freecodecamp.org/news/content/images/size/w150/2021/05/beau-carnes-gravatar.jpeg',
-            status: 'done',
-            priority: 5,
-            progress: 40,
-            description: 'Make a video on how to prep for tech interviews',
-            timestamp: '2022-08-06T07:36:17+0000'
-        },
-        {
-            category: 'Q1 2022',
-            color: 'pink',
-            title: 'How to invest',
-            owner: 'Jennifer Nnadi',
-            avatar: 'https://www.freecodecamp.org/news/content/images/size/w150/2021/05/beau-carnes-gravatar.jpeg',
-            status: 'done',
-            priority: 3,
-            progress: 40,
-            description: 'Make a video on how to prep for tech interviews',
-            timestamp: '2022-08-06T07:36:17+0000'
-        },
-        {
-            category: 'Q2 2022',
-            color: 'red',
-            title: 'DS and algo',
-            owner: 'Jennifer Nnadi',
-            avatar: 'https://www.freecodecamp.org/news/content/images/size/w150/2021/05/beau-carnes-gravatar.jpeg',
-            status: 'done',
-            priority: 2,
-            progress: 20,
-            description: 'record Leetcode problems',
-            timestamp: '2022-08-06T09:36:17+0000'
-        }
-    ]
+    let navigate = useNavigate()
+    const [tickets, setTickets] = useState(null);
+    const {setCategories} = useContext(CategoriesContext);
+    const  {setOwners } = useContext(OwnerContext);
 
+    useEffect(() => async () => {
+        const response = await axios.get('http://localhost:8000/tickets')
+        const dataObj = response.data.data
+        const keys = Object.keys(dataObj);
+        const dataArray = keys.map(key => dataObj[key])
+        const data = []
+        keys.map((key, index) => {
+            const formattedData = {...dataArray[index]}
+            formattedData["documentId"] = key
+            data.push(formattedData)
+        })
+
+        setTickets(data)
+    }, [])
+
+    useEffect(() => {
+        setCategories([...new Set( tickets?.map(({category}) => category))])
+        const owners = [...new Set(tickets?.map(ticket => ({
+            owner: ticket.owner, avatar: ticket.avatar
+        })))]
+        setOwners([owners])
+    }, [tickets])
+
+    const colors = {};
+
+    function generateRandomRgb() {
+        let round = Math.round, random = Math.random, range = 255;
+        return 'rgb(' + round(random()*range) + ',' + round(random()*range) + ',' + round(random()*range) + ')';
+    }
     const uniqueCategory = [...new Set( tickets?.map(({category}) => category))];
+
+    const generateCategoryColor = () => {
+        uniqueCategory.forEach( category => !colors[category]? colors[category] = generateRandomRgb(): '');
+    }
+  generateCategoryColor();
 
     return (
         <div className="dashboard">
-            <h1> My Projects </h1>
+            <div className='header'>
+                <h1> My Projects </h1>
+                <div className='btn'>
+                     <button className='icon-btn' onClick={() => navigate('./ticket')}> ＋ </button>
+                </div>
+
+            </div>
             <div className="ticket-container">
-                {tickets && uniqueCategory?.map((uniqueCategory, categoryIndex) => (
+                {tickets && uniqueCategory?.map((category, categoryIndex) => (
                     <div key={categoryIndex}>
-                        <h3> {uniqueCategory} </h3>
-                        {tickets.filter(ticket => ticket.category === uniqueCategory)
+                        <h3> {category} </h3>
+                        {tickets.filter(ticket => ticket.category === category)
                         .map((filteredTicket, _index) => <Ticket
                         id={_index}
-                        color={filteredTicket.color}
+                        color={colors[category]}
                         ticket={filteredTicket}
                         /> )
 

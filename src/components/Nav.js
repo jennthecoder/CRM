@@ -9,7 +9,6 @@ const Nav = () => {
                 <img src={logo} alt="logo" onClick={() => navigate('/')}/>
             </div>
             <div className='controls-container'>
-                <button className='icon' onClick={() => navigate('./ticket')}> ＋ </button>
                 <button className='icon' onClick={() => navigate('/')}> ❮❮ </button>
             </div>
         </nav>

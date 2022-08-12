@@ -11,12 +11,13 @@ const Ticket = ({color, ticket}) => {
              <div className='ticket-color' style={{backgroundColor: color}}></div>
             <Link to={`/ticket/${ticket.documentId}`} id='link'>
                 <h3> {ticket.title} </h3>
+                <h4>{ticket.description}</h4>
                 <Avatar ticket={ticket}/>
                 <Status status={ticket.status}/>
-                <Priority />
-                <Progress />
+                <Priority priority={ticket.priority}/>
+                <Progress progress={ticket.progress}/>
             </Link>
-            <Delete />
+            <Delete documentId={ticket.documentId}/>
         </div>
     );
 }

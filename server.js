@@ -5,7 +5,7 @@ const axios = require('axios')
 
 const url = process.env.DATABASE_URL;
 const token = process.env.ASTRA_TOKEN;
-const port = 8000 || process.env.PORT;
+const port = process.env.PORT || 8000;
 
 const app = express();
 app.use(cors());

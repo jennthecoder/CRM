@@ -7,9 +7,9 @@ const url = process.env.DATABASE_URL;
 const token = process.env.ASTRA_TOKEN;
 const port = 8000 || process.env.PORT;
 
-const app = express()
-app.use(cors())
-app.use(express.json())
+const app = express();
+app.use(cors());
+app.use(express.json());
 app.use(express.static(`${__dirname}build`));
 
 app.get('/tickets', async(req, res) => {

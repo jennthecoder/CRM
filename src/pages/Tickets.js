@@ -192,7 +192,7 @@ const Tickets = ({editMode}) => {
                         </select>
                         </>
                         }
-                        <input  classname="submit" type="submit" onClick={handleSubmit}/>
+                        <input type="submit" onClick={handleSubmit}/>
                     </section>
                     <section>
                         <label htmlFor='owner'> Owner </label>

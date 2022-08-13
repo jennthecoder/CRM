@@ -17,7 +17,6 @@ app.get('/tickets', async(req, res) => {
         headers: {
             Accepts:'application/json',
             'X-Cassandra-Token': token,
-
         }
     }
     try{

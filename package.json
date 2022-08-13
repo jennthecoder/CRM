@@ -47,12 +47,12 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jennthecoder/CRM.git).git"
+    "url": "git+https://github.com/jennthecoder/CRM.git"
   },
   "author": "Jennifer Nnadi",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jennthecoder/CRM.git)/issues"
+    "url": "https://github.com/jennthecoder/CRM.git/issues"
   },
-  "homepage": "https://github.com/jennthecoder/CRM.git)#readme"
+  "homepage": "https://github.com/jennthecoder/CRM.git#readme"
 }

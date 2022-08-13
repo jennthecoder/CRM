@@ -1,11 +1,11 @@
-const port = 8000 || process.env.PORT
 const express = require('express')
 const cors = require('cors')
 require('dotenv').config()
 const axios = require('axios')
 
-const url = process.env.url
-const token = process.env.ASTRA_TOKEN
+const url = process.env.url;
+const token = process.env.ASTRA_TOKEN;
+const port = 8000 || process.env.PORT;
 
 const app = express()
 app.use(cors())

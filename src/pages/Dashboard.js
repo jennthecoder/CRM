@@ -14,7 +14,7 @@ const Dashboard = () => {
     const  {setOwners } = useContext(OwnerContext);
 
     useEffect(() => async () => {
-        const response = await axios.get('http://localhost:8000/tickets')
+        const response = await axios.get('/tickets')
         const dataObj = response.data.data
         const keys = Object.keys(dataObj);
         const dataArray = keys.map(key => dataObj[key])

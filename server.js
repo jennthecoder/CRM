@@ -2,6 +2,7 @@ const express = require('express')
 const cors = require('cors')
 require('dotenv').config()
 const axios = require('axios')
+const path = require('path');
 
 const url = process.env.DATABASE_URL;
 const token = process.env.ASTRA_TOKEN;
@@ -10,7 +11,9 @@ const port = process.env.PORT || 8000;
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.use(express.static(`${__dirname}build`));
+if(process.env.NODE_ENV === 'production'){
+    app.use(express.static('build'));
+}
 
 app.get('/tickets', async(req, res) => {
     const options = {
@@ -45,6 +48,10 @@ app.get('/tickets/:documentId', async(req, res) => {
         console.log(err)
         res.status(500).json({message: err})
     }
+})
+
+app.get('*', (req, res)=> {
+    res.status(200).send(path.resolve(__dirname, 'build', 'index.html'));
 })
 
 

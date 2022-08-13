@@ -1,4 +1,4 @@
-const PORT = 8000
+const port = 8000 || process.env.PORT
 const express = require('express')
 const cors = require('cors')
 require('dotenv').config()
@@ -111,4 +111,4 @@ app.delete('/tickets/:documentId', async(req, res) => {
 
 
 
-app.listen(PORT, () => console.log('server running on PORT ' + PORT))
+app.listen(port, () => console.log('server running on PORT ' + port))

@@ -51,7 +51,7 @@ app.get('/tickets/:documentId', async(req, res) => {
 })
 
 app.get('*', (req, res)=> {
-    res.status(200).sendFile(path.join(`${__dirname}/build/index.html`));
+    res.status(200).sendFile(path.join(__dirname, 'build', 'index.html'));
 })
 
 

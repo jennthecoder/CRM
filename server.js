@@ -11,9 +11,7 @@ const port = process.env.PORT || 8000;
 const app = express();
 app.use(cors());
 app.use(express.json());
-if(process.env.NODE_ENV === 'production'){
-    app.use(express.static(path.join(__dirname,'build')));
-}
+app.use(express.static(path.join(__dirname,'build')));
 
 app.get('/tickets', async(req, res) => {
     const options = {
@@ -49,12 +47,6 @@ app.get('/tickets/:documentId', async(req, res) => {
         res.status(500).json({message: err})
     }
 })
-
-app.get('*', (req, res)=> {
-    res.status(200).sendFile(path.join(__dirname, 'build', 'index.html'));
-})
-
-
 
 app.post('/tickets', async(req, res) =>{
     const formData = req.body.formData
@@ -115,7 +107,9 @@ app.delete('/tickets/:documentId', async(req, res) => {
     }
 })
 
-
+app.get('*', (req, res)=> {
+    res.status(200).sendFile(path.join(__dirname, 'build', 'index.html'));
+})
 
 
 app.listen(port, () => console.log('server running on PORT ' + port))

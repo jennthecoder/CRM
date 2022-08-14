@@ -14,7 +14,7 @@ const Dashboard = () => {
     const  {setOwners } = useContext(OwnerContext);
 
     useEffect(() => async () => {
-        const response = await axios.get('/tickets')
+        const response = await axios.get('tickets')
         const dataObj = response.data.data
         const keys = Object.keys(dataObj);
         const dataArray = keys.map(key => dataObj[key])
@@ -54,7 +54,7 @@ const Dashboard = () => {
             <div className='header'>
                 <h1> My Projects </h1>
                 <div className='btn'>
-                     <button className='icon-btn' onClick={() => navigate('./ticket')}> ＋ </button>
+                     <button className='icon-btn' onClick={() => navigate('/ticket')}> ＋ </button>
                 </div>
 
             </div>

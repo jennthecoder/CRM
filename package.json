@@ -53,5 +53,6 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/jennthecoder/CRM.git/issues"
-  }
+  },
+  "homepage": "https://crm-dashboard-react-app.herokuapp.com"
 }

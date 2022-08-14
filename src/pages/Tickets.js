@@ -126,6 +126,7 @@ const Tickets = ({editMode}) => {
                             name="priority"
                             type="radio"
                             onChange={handleChange}
+                            required={true}
                             value={1}
                             checked={formData.priority == 1}
                         />
@@ -135,6 +136,7 @@ const Tickets = ({editMode}) => {
                             name="priority"
                             type="radio"
                             onChange={handleChange}
+                            required={true}
                             value={2}
                             checked={formData.priority == 2}
                         />
@@ -144,6 +146,7 @@ const Tickets = ({editMode}) => {
                             name="priority"
                             type="radio"
                             onChange={handleChange}
+                            required={true}
                             value={3}
                             checked={formData.priority == 3}
                         />
@@ -153,6 +156,7 @@ const Tickets = ({editMode}) => {
                             name="priority"
                             type="radio"
                             onChange={handleChange}
+                            required={true}
                             value={4}
                             checked={formData.priority == 4}
                         />
@@ -163,6 +167,7 @@ const Tickets = ({editMode}) => {
                             type="radio"
                             onChange={handleChange}
                             value={5}
+                            required={true}
                             checked={formData.priority == 5}
                         />
                         <label htmlFor="priority-5">5</label>
@@ -182,7 +187,8 @@ const Tickets = ({editMode}) => {
                         <label htmlFor='progress'>Status</label>
                         <select
                             name="status"
-                            value={formData.progress === 100? 'completed' :formData.status}
+                            value={formData.status}
+                            required={true}
                             onChange={handleChange}
                         >
                             <option selected={formData.status === 'in progress'}> In progress </option>

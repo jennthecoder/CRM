@@ -14,17 +14,16 @@ const Dashboard = () => {
     const  {setOwners } = useContext(OwnerContext);
 
     useEffect(() => async () => {
-        const response = await axios.get('/tickets')
+        const response = await axios.get('https://crm-dashboard-react-app.herokuapp.com/tickets')
         const dataObj = response.data.data
         const keys = Object.keys(dataObj);
         const dataArray = keys.map(key => dataObj[key])
-        const data = []
+        const data = [];
         keys.map((key, index) => {
             const formattedData = {...dataArray[index]}
             formattedData["documentId"] = key
             data.push(formattedData)
         })
-
         setTickets(data)
     }, [])
 

@@ -19,8 +19,8 @@ const App = () => {
         <Nav/>
         <Routes>
           <Route path="/" element={< Dashboard/>} />
-          <Route path="ticket" element={<Tickets />} />
-          <Route path="ticket/:id" element={<Tickets editMode={true}/>} />
+          <Route path="/ticket" element={<Tickets />} />
+          <Route path="/ticket/:id" element={<Tickets editMode={true}/>} />
         </Routes>
       </BrowserRouter>
       </OwnerContext.Provider>

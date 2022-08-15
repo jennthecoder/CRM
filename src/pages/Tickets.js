@@ -21,14 +21,14 @@ const Tickets = ({editMode}) => {
     const handleSubmit = async(e) => {
         e.preventDefault();
         if(editMode){
-            const response =  await axios.put(`tickets/${id}`, {data: formData})
+            const response =  await axios.put(`/tickets/${id}`, {data: formData})
             const success =  response.status === 200
             if(success){
                 navigate('/');
             }
         }
         if(!editMode){
-            const response = await axios.post('tickets', {
+            const response = await axios.post('/tickets', {
                 formData
             });
             const success = response.status === 200;
@@ -40,9 +40,8 @@ const Tickets = ({editMode}) => {
     }
 
     const fetchData = async() => {
-       const response = await axios.get(`tickets/${id}`)
+       const response = await axios.get(`/tickets/${id}`)
        setFormData(response.data.data)
-
     }
 
     useEffect(() =>{
